@@ -1,2 +1,3 @@
 db.sqlite3
 mysite/envfile.py
+mysite/__pycache__/
