@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <div>
   <h1>This is the body from the personal templates</h1>
-  <p>here is where stuff goes</p>
-  {% include 'personal/snippets/body_snippets.html' %}
+
+  <p>{{some_string}}</p>
+  <div>
+    {%for item in list_of_values%} {{item}} {%include
+    'personal/snippets/body_snippets.html' with value=item%} {%endfor%}
+  </div>
 </div>
 
 {%endblock content%}
