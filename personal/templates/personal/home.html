@@ -3,10 +3,8 @@
   <h1>This is the body from the personal templates</h1>
 
   <p>{{some_string}}</p>
-  <div>
-    {%for item in list_of_values%} {{item}} {%include
-    'personal/snippets/body_snippets.html' with value=item%} {%endfor%}
-  </div>
+  {%for item in list_of_values%}
+  <div>{%include 'personal/snippets/body_snippets.html' with value=item%}</div>
 </div>
 
-{%endblock content%}
+{%endfor%}{%endblock%}
