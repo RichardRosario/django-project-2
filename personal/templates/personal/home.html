@@ -2,10 +2,8 @@
 <div>
   <h1>This is the body from the personal templates</h1>
 
-  {%for question in questions%}
-  <div>
-    {%include 'personal/snippets/body_snippets.html' with value=question%}
-  </div>
+  {%for account in accounts%}
+  <p>Name: {{account.username}}, Email: {{account}}</p>
 </div>
 
 {%endfor%}{%endblock%}
