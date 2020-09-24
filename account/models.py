@@ -5,13 +5,13 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
-            raise ValueError('Users must have an email')
+            raise ValueError('Users must have an email address')
         if not username:
             raise ValueError('Users must have a username')
 
         user = self.model(
             email=self.normalize_email(email),
-            username=username
+            username=username,
         )
 
         user.set_password(password)
@@ -21,8 +21,8 @@ class MyAccountManager(BaseUserManager):
     def create_superuser(self, email, username, password):
         user = self.create_user(
             email=self.normalize_email(email),
-            username=username,
             password=password,
+            username=username,
         )
         user.is_admin = True
         user.is_staff = True
@@ -32,9 +32,8 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    # required fields for custom User model
-    email = models.EmailField(verbose_name='email', max_length=60, unique=True)
-    username = models.CharField(max_length=60, unique=True)
+    email = models.EmailField(verbose_name="email", max_length=60, unique=True)
+    username = models.CharField(max_length=30, unique=True)
     date_joined = models.DateTimeField(
         verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
@@ -43,7 +42,6 @@ class Account(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
-# use to login
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
@@ -52,10 +50,10 @@ class Account(AbstractBaseUser):
     def __str__(self):
         return self.email
 
-        # required function to make this work
-
+    # For checking permissions. to keep it simple all admin have ALL permissons
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
+    # Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
     def has_module_perms(self, app_label):
         return True
