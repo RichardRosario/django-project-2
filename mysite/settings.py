@@ -28,7 +28,8 @@ SECRET_KEY = '10&em&utxqx_d11epu#w%6(+w$#wbfgjm6011*lstictix3tu7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 if DEBUG:
     # during development only
