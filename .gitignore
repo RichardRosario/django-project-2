@@ -2,3 +2,7 @@ db.sqlite3
 mysite/envfile.py
 mysite/settings.py
 mysite/__pycache__/
+static_cdn/
+media_cdn/
+media/
+static/
