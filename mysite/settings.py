@@ -40,9 +40,11 @@ if DEBUG:
 
 INSTALLED_APPS = [
     # my apps
-    'personal',
-    'account',
-    # =======
+    # ==============
+    'personal.apps.PersonalConfig',
+    'account.apps.AccountConfig',
+    'blog.apps.BlogConfig',
+    # ==============
     # django apps
     'django.contrib.admin',
     'django.contrib.auth',
