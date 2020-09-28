@@ -1,20 +1,76 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
+
+<style type="text/css">
+  @media (max-width: 768px) {
+    .right-column {
+      margin-left: 0px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .right-column {
+      margin-left: 20px;
+    }
+  }
+
+  .blog-post-container {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .create-post-bar {
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .left-column {
+    padding: 0px;
+  }
+
+  .right-column {
+    padding: 0px;
+  }
+
+  .lead {
+    font-size: 17px;
+  }
+</style>
 
 <!-- Top 'create post' bar -->
-<div class="mb-3">
-  <div class="card m-auto d-flex flex-column p-3">
-    <!-- <img class="img-fluid d-block m-auto pb-2" src="#" width="72" height="72"> -->
-    <p class="lead">
-      In this course you'll learn how to build a simple blog with user
-      registration and blog CRUD functionality. Django is a powerful framework
-      and you'll see why in this course.
-    </p>
-    <p class="m-auto"><a class="btn btn-primary" href="#">Create post</a></p>
+<div class="container">
+  <div class="row">
+    <div class="create-post-bar d-lg-none col-lg-7 offset-lg-1">
+      <a href="#">Create post</a>
+    </div>
+    <!-- blog feed -->
+    <div class="left-column col-lg-7 offset-lg-1">
+      <div class="blog-post-container">
+        <p>posts</p>
+      </div>
+      <div class="blog-post-container">
+        <p>posts</p>
+      </div>
+      <div class="blog-post-container">
+        <p>posts</p>
+      </div>
+      <div class="blog-post-container">
+        <p>posts</p>
+      </div>
+    </div>
+    <!-- blog feed end -->
+    <!-- right column -->
+    <div class="right-column col-lg-3 d-lg-flex d-none flex-column">
+      <div class="create-post-bar">
+        <p>some good stuff</p>
+        <p>some good stuff</p>
+        <p>some good stuff</p>
+        <p>some good stuff</p>
+        <p>some good stuff</p>
+      </div>
+      <a href="#">Create post</a>
+    </div>
   </div>
 </div>
 <!-- end Top 'create post' bar -->
 
-{%for account in accounts%}
-<p>Name: {{account.username}}, Email: {{account}}</p>
-
-{%endfor%}{%endblock%}
+{%endblock%}
