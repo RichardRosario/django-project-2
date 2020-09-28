@@ -1,11 +1,11 @@
 from django.urls import path
-from django.views import (
+from blog.views import (
     create_blog_view,
 )
 
-appname = 'blog'
+app_name = 'blog'
 
 
-urlpatters = [
+urlpatterns = [
     path('create/', create_blog_view, name='create')
 ]
