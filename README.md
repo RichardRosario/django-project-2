@@ -49,7 +49,7 @@
 
 ### Blog Search Bar
 
-1.
+1. added ssearch bar and search functionality
 2.
 
 ### Technologies used
