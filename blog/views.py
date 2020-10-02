@@ -3,6 +3,7 @@ from blog.models import BlogPost
 from blog.forms import CreateBlogPostForm, UpdateBlogPostForm
 from account.models import Account
 from django.db.models import Q
+from django.http import HttpResponse
 
 
 def create_blog_view(request):
@@ -42,6 +43,10 @@ def edit_blog_view(request, slug):
         return redirect('must_authenticate')
 
     blog_post = get_object_or_404(BlogPost, slug=slug)
+
+    if blog_post.author != user:
+        return HttpResponse('Not allowed to edit! You are not the author of this post.')
+
     if request.POST:
         form = UpdateBlogPostForm(
             request.POST or None, request.FILES or None, instance=blog_post)

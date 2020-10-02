@@ -5,7 +5,7 @@ from blog.models import BlogPost
 from blog.views import get_blog_queryset
 
 # home view
-BLOG_POSTS_PER_PAGE = 2
+BLOG_POSTS_PER_PAGE = 3
 
 
 def home_screen_view(request):
