@@ -47,10 +47,10 @@
 7. created templates for blog posts and post pagination
 8. completed blog post pagination and more styling
 
-### Blog Search Bar
+### Blog Search Bar and pagination
 
-1. added ssearch bar and search functionality
-2.
+1. added search bar and search functionality
+2. added pagination
 
 ### Technologies used
 
